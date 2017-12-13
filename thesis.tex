@@ -1,0 +1,139 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+\PassOptionsToPackage{table}{xcolor}
+\documentclass[type=msc,nochapname,bigchapter,accentcolor=tud2b,nopartpage,linedtoc,11pt,listof=totoc]{tudthesis} % use larger type; default would be 10pt
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} 
+\geometry{a4paper}
+
+%%% PACKAGES
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+\usepackage[ngerman,american]{babel} % Hyphenation
+
+\usepackage{wrapfig} %for floating images
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{subfiles} % Include subfiles, but better!!!
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{float}
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{longtable} % Multi-page tables
+\usepackage{ltablex}
+
+\usepackage{hyperref} % Hyperlinks
+\usepackage{framed}
+\usepackage{gensymb}
+\usepackage{pdfpages}
+\usepackage{minted} % Source code listings
+\usepackage[toc]{appendix} % Appendices (also shown in toc)
+\usepackage{amsthm}
+\usepackage[a-1b]{pdfx} % PDF-A compatibility
+\usepackage[autostyle=true,german=guillemets]{csquotes} % Nice quotes
+
+% No lines for subsubsections
+\setcounter{seclinedepth}{2}
+
+% Use -- as itemizing symbol
+\AtBeginDocument{\def\labelitemi{--}}
+
+% Bibliography
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+\DefineBibliographyStrings{english}{bibliography = {Bibliography},} % replace "references" with "bibliography"  for `book`/`report`
+% Load bibliography file
+\bibliography{bibliography}
+
+% Real paragraphs (with spaces between them instead of identation)
+\parindent 0pt
+\parskip 6pt
+\titlespacing{\section}{0pt}{0pt}{-\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+
+% Color for shaded boxes \begin{shaded*} • \end{shaded*}
+\colorlet{shadecolor}{tudaccent!40} 
+
+%Improve look of tables
+\renewcommand{\arraystretch}{1.5}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition} % definition numbers are dependent on theorem numbers
+
+
+%%% SETTINGS
+
+% Title attributes
+\thesistitle{•}{•}
+\author{•}
+\date{•}
+\referee{•}{•}
+
+% Sublogo -- either text describing department and group or image file
+\department{•}
+\group{•}
+%\setinstitutionlogo[width]{img/•}
+
+% Titlepicture
+%\settitlepicture{img/•}
+%\printpicturesize % Vorhandenen Platz ausgeben um optimales Titelbild zu wählen
+
+% Add text on the lower part of the title back (second page of front matter) -- e.g. description of the title graphic
+\lowertitleback{•}
+
+% Customize statement
+\newcommand{\statementAuthor}{•}
+\newcommand{\thesisKind}{•}
+
+
+\begin{document}
+
+\makethesistitle
+
+\pagenumbering{alph}
+
+\subfile{chapters/abstract}
+
+\subfile{chapters/acknowledgements}
+
+\tableofcontents
+
+% ===========================
+% Chapters
+% ===========================
+
+\subfile{chapters/intro}
+
+%\subfile{chapters/•}
+
+\subfile{chapters/conclusion}
+
+
+%Put list of figures and list of tables on one single page
+\newpage
+\noindent\begin{minipage}{\textwidth}
+\listoffigures
+\listoftables
+\end{minipage}
+
+\printbibliography[heading=bibintoc]
+
+\subfile{chapters/appendix}
+
+\newpage
+
+\pagenumbering{gobble}
+
+\subfile{statement}
+
+
+\end {document}

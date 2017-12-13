@@ -1,0 +1,31 @@
+\documentclass[../thesis.tex]{subfiles}
+
+\begin{document}
+
+\graphicspath{{../}}
+
+\begin{appendices}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\makeatletter
+\addtocontents{toc}{%
+  \begingroup
+  \let\protect\l@chapter\protect\l@section
+  \let\protect\l@section\protect\l@subsection
+}
+\makeatother
+
+\part*{Appendices}
+
+
+\chapter{•}
+
+\pagenumbering{roman}
+
+TODO
+
+\end{appendices}
+
+\clearpage
+
+\end{document}
