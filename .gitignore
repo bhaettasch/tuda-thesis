@@ -98,3 +98,7 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
+
+pdfa.xmpi
+creationdate.lua
+thesis.pdf
